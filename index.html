@@ -4,13 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>分享测试卡片</title>
-    <!-- 微信抓取卡片信息核心OG标签 全部替换为你的资源 -->
+    <!-- 基础Open Graph 微信卡片核心配置 -->
     <meta property="og:title" content="《不时用俄语小声说真心话的邻桌艾莉同学》第1话">
     <meta property="og:description" content="剧集播放：1.7亿 | 系列追番：247万">
-    <meta property="og:image" content="https://raw.githubusercontent.com/xfchd090909/aeWechatCard/refs/heads/main/🥺.png">
+    <meta property="og:image" content="https://img.cdn1.vip/i/6a7399e65b596_1785960934.webp">
     <meta property="og:url" content="https://aeweccard.netlify.app/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="哔哩哔哩">
+    <!-- Twitter兼容标签，微信X5内核兜底渲染 -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://img.cdn1.vip/i/6a7399e65b596_1785960934.webp">
+    <!-- 禁止页面缓存，方便微信爬虫实时抓取最新代码 -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <style>
         body {
             display: flex;
@@ -29,6 +36,9 @@
             border-radius: 8px;
             color: white;
             cursor: pointer;
+        }
+        #shareBtn:active {
+            background: #06aa53;
         }
         #tip {
             color: #aaa;
@@ -50,7 +60,7 @@
             try {
                 // 复制链接到剪贴板
                 await navigator.clipboard.writeText(shareUrl);
-                alert("链接复制成功！\n打开微信，粘贴发送好友即可展示自定义卡片");
+                alert("链接复制成功！\n提示：发送时链接末尾加 ?v=1 可避开微信缓存");
             } catch (err) {
                 alert("复制失败，请手动复制链接：" + shareUrl);
             }
