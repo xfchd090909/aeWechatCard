@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分享测试卡片</title>
+    <!-- 微信抓取卡片信息核心OG标签 -->
+    <meta property="og:title" content="《不时用俄语小声说真心话的邻桌艾莉同学》第1话">
+    <meta property="og:description" content="剧集播放：1.7亿 | 系列追番：247万">
+    <meta property="og:image" content="https://p.qqan.com/up/2025-1/1736772203864197.jpg">
+    <meta property="og:url" content="https://你的网站域名/index.html">
+    <meta property="og:type" content="website">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 100px;
+            gap: 30px;
+            background: #1a1a1a;
+            color: #fff;
+        }
+        #shareBtn {
+            padding: 14px 32px;
+            font-size: 18px;
+            background: #07C160;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+        }
+        #tip {
+            color: #aaa;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h2>分享番剧卡片到微信</h2>
+    <button id="shareBtn">点击复制分享链接</button>
+    <div id="tip">链接已复制，请打开微信粘贴发给好友，自动生成卡片</div>
+
+    <script>
+        const shareBtn = document.getElementById('shareBtn');
+        const shareUrl = "https://你的网站域名/index.html";
+
+        shareBtn.addEventListener('click', async () => {
+            try {
+                // 复制链接到剪贴板
+                await navigator.clipboard.writeText(shareUrl);
+                alert("链接复制成功！\n打开微信，粘贴发送好友即可展示自定义卡片");
+            } catch (err) {
+                alert("复制失败，请手动复制链接：" + shareUrl);
+            }
+        })
+    </script>
+</body>
+</html>
